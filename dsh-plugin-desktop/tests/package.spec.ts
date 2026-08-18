@@ -251,6 +251,7 @@ describe('published package surface', () => {
       'build/app-icon-mac.png',
       'build/tray-icon.svg',
       'build/tray-icon*.png',
+      'scripts/windows-ocr.ps1',
       'cordis.patch.yml',
       'lib/**',
       'package.json',

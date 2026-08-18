@@ -39,6 +39,10 @@
       "types": "./lib/types/windows-agent-presets.d.ts",
       "default": "./lib/windows-agent-presets.js"
     },
+    "./vision-proxy": {
+      "types": "./lib/types/vision-proxy.d.ts",
+      "default": "./lib/vision-proxy.js"
+    },
     "./terminal": {
       "types": "./lib/types/terminal.d.ts",
       "default": "./lib/terminal.js"
@@ -74,6 +78,7 @@
     "build/app-icon-mac.png",
     "build/tray-icon.svg",
     "build/tray-icon*.png",
+    "scripts/windows-ocr.ps1",
     "cordis.patch.yml",
     "docs/**",
     "lib/**/*.js",
@@ -271,6 +276,7 @@
       "build/app-icon-mac.png",
       "build/tray-icon.svg",
       "build/tray-icon*.png",
+      "scripts/windows-ocr.ps1",
       "cordis.patch.yml",
       "lib/**",
       "package.json",

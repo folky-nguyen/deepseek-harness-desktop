@@ -15,6 +15,7 @@ import { installDesktopPnpmRuntime } from '../lib/desktop-runtime-environment.js
 import { installProfilePackageResolver } from '../lib/module-resolution.js'
 import { prepareDesktopProfile } from '../lib/profile.js'
 import { DesktopProfileService } from '../lib/profile-service.js'
+import { DESKTOP_VISION_PROVIDER } from '../lib/vision-proxy.js'
 
 const BIN_NAME = 'dsh-plugin-desktop-profile-smoke'
 const HOST_SERVICE_PLUGIN_NAME = 'dsh-desktop-host-services-smoke-plugin'
@@ -157,6 +158,9 @@ try {
 
   if (ctx.get('desktopPnpm') === undefined) {
     throw new Error('assembled desktop profile is missing the desktop pnpm Host capability')
+  }
+  if (!ctx.llm.listProviders().some(provider => provider.id === DESKTOP_VISION_PROVIDER)) {
+    throw new Error('assembled desktop profile is missing the Desktop image-reader provider')
   }
   if (ctx.desktopProfiles.current.name !== 'desktop'
     || ctx.desktopProfiles.current.dir !== prepared.profile.dir) {

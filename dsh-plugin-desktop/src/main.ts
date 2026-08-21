@@ -65,6 +65,7 @@ import {
   formatWindowsVolumeConcern,
   type WindowsVolumeConcern,
 } from './windows-volume-diagnostics.ts'
+import { isolateDesktopCredentialEnvironment } from './credential-environment.ts'
 
 const BIN_NAME = 'dsh-plugin-desktop'
 const PRODUCT_NAME = 'DSH Desktop'
@@ -127,6 +128,8 @@ async function start(): Promise<void> {
     app.quit()
     return
   }
+
+  isolateDesktopCredentialEnvironment(process.env)
 
   let current: Context | undefined
   let profileStartup: DesktopProfileStartup | undefined
